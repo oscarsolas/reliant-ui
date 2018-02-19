@@ -11469,7 +11469,7 @@ exports = module.exports = __webpack_require__(10)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato);", ""]);
 
 // module
-exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  overflow: hidden;\n  text-decoration: none;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #000000;\n  vertical-align: middle;\n  height: 28px;\n  padding: 0 20px;\n  border-radius: 4px;\n  border: 1px solid #000000;\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n}\n", ""]);
+exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  overflow: hidden;\n  text-decoration: none;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #ffffff;\n  vertical-align: middle;\n  height: 28px;\n  padding: 4px 20px;\n  border-radius: 3px;\n  background: linear-gradient(15deg, #9e48dc 0%, #b46aff 50%, #c18bf9 100%);\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  box-shadow: 0px 1px 14px rgba(193, 139, 249, 0.7);\n}\n", ""]);
 
 // exports
 
