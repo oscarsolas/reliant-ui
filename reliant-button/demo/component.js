@@ -102,14 +102,21 @@ module.exports = g;
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'reliant-button',
   props: ['to'],
+  data: function() {
+    return {
+      animation: void 0
+    };
+  },
   methods: {
     animateLine: function(element, to) {
-      return __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+      if (this.animation) {
+        this.animation.pause();
+      }
+      return this.animation = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
         targets: element,
-        d: 'M 0 1 Q 80 ' + to + ' 160 1',
-        duration: 1800,
-        // easing: 'easeInOutBack'
-        elasticity: 600
+        d: 'M 0 1 Q 80 ' + (1 - to) + ' 160 1 L 160 36 Q 80 ' + (36 + to) + ' 0 36 Z',
+        duration: 1200,
+        elasticity: 800
       });
     },
     hover: function() {
@@ -117,16 +124,14 @@ module.exports = g;
       component = this;
       lineTop = component.$refs.lineTop;
       lineBottom = component.$refs.lineBottom;
-      component.animateLine(lineTop, -5);
-      return component.animateLine(lineBottom, -5);
+      return component.animateLine(lineTop, 10);
     },
     out: function() {
       var component, lineBottom, lineTop;
       component = this;
       lineTop = component.$refs.lineTop;
       lineBottom = component.$refs.lineBottom;
-      component.animateLine(lineTop, 1);
-      return component.animateLine(lineBottom, 1);
+      return component.animateLine(lineTop, 0);
     }
   },
   mounted: function() {}
@@ -11501,7 +11506,7 @@ exports = module.exports = __webpack_require__(10)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato);", ""]);
 
 // module
-exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  text-decoration: none;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  position: relative;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #ffffff;\n  vertical-align: middle;\n  height: 28px;\n  padding: 4px 20px;\n  border-radius: 3px;\n  background-color: #b074ef;\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  filter: drop-shadow(0px 1px 14px rgba(193, 139, 249, 0.7));\n}\n.top[data-v-9a64a454] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  overflow: visible;\n}\n.top path[data-v-9a64a454] {\n    fill: #b074ef;\n    backface-visibility: hidden;\n}\n.bottom[data-v-9a64a454] {\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  overflow: visible;\n  transform: rotate(-180deg);\n}\n.bottom path[data-v-9a64a454] {\n    fill: #b074ef;\n    backface-visibility: hidden;\n}\n", ""]);
+exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  position: relative;\n  text-decoration: none;\n  z-index: 1;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  position: relative;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #ffffff;\n  vertical-align: middle;\n  height: 28px;\n  padding: 4px 20px;\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  filter: drop-shadow(0px 1px 14px rgba(193, 139, 249, 0.7));\n  background-color: #b074ef;\n  border-radius: 4px;\n}\nsvg[data-v-9a64a454] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  overflow: visible;\n  z-index: -1;\n}\nsvg.we[data-v-9a64a454] {\n    width: 38px;\n    left: auto;\n    right: -20px;\n}\nsvg path[data-v-9a64a454] {\n    fill: #b074ef;\n    backface-visibility: hidden;\n}\n", ""]);
 
 // exports
 
@@ -12025,33 +12030,18 @@ var render = function() {
           _c(
             "svg",
             {
-              staticClass: "top",
               attrs: {
                 width: "100%",
                 height: "2",
                 xmlns: "http://www.w3.org/2000/svg",
                 preserveAspectRatio: "none",
-                viewBox: "-2 1 164 1"
-              }
-            },
-            [_c("path", { ref: "lineTop", attrs: { d: "M 0 1 Q 80 1 160 1" } })]
-          ),
-          _c(
-            "svg",
-            {
-              staticClass: "bottom",
-              attrs: {
-                width: "100%",
-                height: "2",
-                xmlns: "http://www.w3.org/2000/svg",
-                preserveAspectRatio: "none",
-                viewBox: "-2 1 164 1"
+                viewBox: "-4 1 168 1.945"
               }
             },
             [
               _c("path", {
-                ref: "lineBottom",
-                attrs: { d: "M 0 1 Q 80 1 160 1" }
+                ref: "lineTop",
+                attrs: { d: "M 0 1 Q 80 1 160 1 L 160 36 Q 80 36 0 36 Z" }
               })
             ]
           )
