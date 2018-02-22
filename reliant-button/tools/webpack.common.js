@@ -17,6 +17,11 @@ module.exports = {
 	resolveLoader: {
 		modules: [path.join(__dirname, 'node_modules')]
 	},
+	resolve: {
+		alias: {
+			'anime$': path.resolve(__dirname, 'node_modules', 'animejs', 'anime.min.js')
+		}
+	},
 	module: {
 		rules: [
 			{

@@ -4,6 +4,7 @@
   "author": "Redbility <hello@redbility.com>",
   "license": "MIT",
   "dependencies": {
+    "animejs": "^2.2.0",
     "vue": "^2.4.2"
   },
   "devDependencies": {
