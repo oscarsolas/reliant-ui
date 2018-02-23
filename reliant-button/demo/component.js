@@ -101,10 +101,16 @@ module.exports = g;
 
 /* harmony default export */ __webpack_exports__["a"] = ({
   name: 'reliant-button',
-  props: ['to'],
+  props: ['to', 'type'],
   data: function() {
     return {
-      animation: void 0
+      animation: void 0,
+      animation2: void 0,
+      animation3: void 0,
+      animation4: void 0,
+      animation5: void 0,
+      animation6: void 0,
+      animation7: void 0
     };
   },
   methods: {
@@ -119,22 +125,164 @@ module.exports = g;
         elasticity: 800
       });
     },
+    animateRadius: function(element, to, move) {
+      if (this.animation2) {
+        this.animation2.pause();
+      }
+      return this.animation2 = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+        targets: element,
+        d: 'M 0 36 L 0 0 L 20 0 A ' + to + ' 10 0 1 1 20 36 Z',
+        translateX: move
+      });
+    },
+    // duration: 1200
+    // elasticity: 800
+    animatePadding: function(element, to) {
+      if (this.animation3) {
+        this.animation3.pause();
+      }
+      return this.animation3 = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+        targets: element,
+        paddingRight: to
+      });
+    },
+    animateArrowIn: function() {
+      var arrow, arrowBottom, arrowTop;
+      arrow = this.$refs.arrow;
+      arrowTop = this.$refs.arrow_top;
+      arrowBottom = this.$refs.arrow_bottom;
+      if (this.animation5) {
+        this.animation5.pause();
+      }
+      if (this.animation4) {
+        this.animation4.pause();
+      }
+      this.animation4 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation4.add({
+        targets: arrow,
+        opacity: 1,
+        duration: 800
+      }).add({
+        targets: arrow,
+        width: 12,
+        offset: '-=700',
+        duration: 800
+      }).add({
+        targets: arrow,
+        right: -4,
+        offset: '-=800',
+        duration: 800
+      }).add({
+        targets: arrowTop,
+        rotate: 45,
+        width: 8,
+        offset: '-=600',
+        duration: 800
+      }).add({
+        targets: arrowBottom,
+        rotate: -45,
+        width: 8,
+        offset: '-=750',
+        duration: 800
+      });
+    },
+    animateArrowOut: function() {
+      var arrow, arrowBottom, arrowTop;
+      arrow = this.$refs.arrow;
+      arrowTop = this.$refs.arrow_top;
+      arrowBottom = this.$refs.arrow_bottom;
+      if (this.animation5) {
+        this.animation5.pause();
+      }
+      if (this.animation4) {
+        this.animation4.pause();
+      }
+      this.animation5 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation5.add({
+        targets: arrow,
+        opacity: 0,
+        duration: 800
+      }).add({
+        targets: arrowBottom,
+        rotate: 0,
+        width: 2,
+        duration: 100
+      }).add({
+        targets: arrowTop,
+        rotate: 0,
+        width: 2,
+        duration: 100
+      }).add({
+        targets: arrow,
+        right: 12,
+        duration: 100
+      }).add({
+        targets: arrow,
+        width: 2,
+        duration: 100
+      });
+    },
+    animatecircleIn: function() {
+      var circle;
+      circle = this.$refs.circle;
+      if (this.animation6) {
+        this.animation6.pause();
+      }
+      if (this.animation7) {
+        this.animation7.pause();
+      }
+      this.animation6 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation6.add({
+        targets: circle,
+        opacity: 1,
+        duration: 100
+      }).add({
+        targets: circle,
+        scale: 1,
+        duration: 800
+      });
+    },
+    animatecircleOut: function() {
+      var circle;
+      circle = this.$refs.circle;
+      if (this.animation7) {
+        this.animation7.pause();
+      }
+      if (this.animation6) {
+        this.animation6.pause();
+      }
+      this.animation7 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation7.add({
+        targets: circle,
+        opacity: 0,
+        duration: 100
+      }).add({
+        targets: circle,
+        scale: 0,
+        duration: 100
+      });
+    },
     hover: function() {
-      var component, lineBottom, lineTop;
+      var a, component, lineTop;
       component = this;
       lineTop = component.$refs.lineTop;
-      lineBottom = component.$refs.lineBottom;
-      return component.animateLine(lineTop, 10);
+      a = component.$refs.a;
+      component.animatePadding(a, 30);
+      component.animateRadius(lineTop, 10, 0);
+      component.animateArrowIn();
+      return component.animatecircleIn();
     },
     out: function() {
-      var component, lineBottom, lineTop;
+      var a, component, lineTop;
       component = this;
       lineTop = component.$refs.lineTop;
-      lineBottom = component.$refs.lineBottom;
-      return component.animateLine(lineTop, 0);
+      a = component.$refs.a;
+      component.animatePadding(a, 20);
+      component.animateRadius(lineTop, 0, -30);
+      component.animateArrowOut();
+      return component.animatecircleOut();
     }
-  },
-  mounted: function() {}
+  }
 });
 
 
@@ -11506,7 +11654,7 @@ exports = module.exports = __webpack_require__(10)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato);", ""]);
 
 // module
-exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  position: relative;\n  text-decoration: none;\n  z-index: 1;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  position: relative;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #ffffff;\n  vertical-align: middle;\n  height: 28px;\n  padding: 4px 20px;\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  filter: drop-shadow(0px 1px 14px rgba(193, 139, 249, 0.7));\n  background-color: #b074ef;\n  border-radius: 4px;\n}\nsvg[data-v-9a64a454] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  overflow: visible;\n  z-index: -1;\n}\nsvg.we[data-v-9a64a454] {\n    width: 38px;\n    left: auto;\n    right: -20px;\n}\nsvg path[data-v-9a64a454] {\n    fill: #b074ef;\n    backface-visibility: hidden;\n}\n", ""]);
+exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  position: relative;\n  text-decoration: none;\n  z-index: 1;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  position: relative;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #ffffff;\n  vertical-align: middle;\n  height: 28px;\n  padding: 4px 20px;\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  filter: drop-shadow(0px 1px 14px rgba(193, 139, 249, 0.7));\n  background-color: #b074ef;\n  border-radius: 4px;\n}\n.slick[data-v-9a64a454] {\n  position: absolute;\n  width: 20px;\n  height: 37px;\n  top: 0;\n  right: 0;\n  overflow: visible;\n  z-index: -1;\n}\n.slick path[data-v-9a64a454] {\n    fill: #b074ef;\n    backface-visibility: hidden;\n    transform: translate3d(-30px, 0, 0);\n}\n.arrow[data-v-9a64a454] {\n  position: absolute;\n  width: 2px;\n  height: 1.5px;\n  border-radius: 2px;\n  top: calc(50% - 1px);\n  right: 12px;\n  overflow: visible;\n  z-index: 1;\n  background-color: #ffffff;\n  opacity: 0;\n}\n.arrow .arrow_top[data-v-9a64a454] {\n    position: absolute;\n    content: '';\n    width: 2px;\n    height: 1.5px;\n    right: 0;\n    top: 0;\n    border-radius: 2px;\n    background-color: #ffffff;\n    transform-origin: 100% 0;\n}\n.arrow .arrow_bottom[data-v-9a64a454] {\n    position: absolute;\n    content: '';\n    width: 2px;\n    height: 1.5px;\n    right: 0;\n    top: 0;\n    border-radius: 2px;\n    background-color: #ffffff;\n    transform-origin: 100% 100%;\n}\n.circle[data-v-9a64a454] {\n  position: absolute;\n  right: -11px;\n  width: 22px;\n  height: 22px;\n  border-radius: 40px;\n  border: 1.5px solid #ffffff;\n  transform: scale(0);\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
@@ -12024,27 +12172,34 @@ var render = function() {
     [
       _c(
         "div",
-        { staticClass: "reliant-button_wrapper" },
+        { ref: "a", staticClass: "reliant-button_wrapper" },
         [
           _vm._t("default"),
           _c(
             "svg",
             {
+              staticClass: "slick",
               attrs: {
-                width: "100%",
-                height: "2",
                 xmlns: "http://www.w3.org/2000/svg",
-                preserveAspectRatio: "none",
-                viewBox: "-4 1 168 1.945"
+                preserveAspectRatio: "none"
               }
             },
             [
               _c("path", {
                 ref: "lineTop",
-                attrs: { d: "M 0 1 Q 80 1 160 1 L 160 36 Q 80 36 0 36 Z" }
+                attrs: { d: "M 0 36 L 0 0 L 20 0 A 0 10 0 1 1 20 36 Z" }
               })
             ]
-          )
+          ),
+          _c("div", { ref: "arrow", staticClass: "arrow" }, [
+            _c("span", { ref: "arrow_top", staticClass: "arrow_top" }),
+            _c("span", { ref: "arrow_bottom", staticClass: "arrow_bottom" })
+          ]),
+          _c("div", {
+            ref: "circle",
+            staticClass: "circle",
+            staticStyle: { transform: "scale(0)" }
+          })
         ],
         2
       )

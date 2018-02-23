@@ -1,5 +1,11 @@
 a(:href="to" v-on:mouseover="hover" v-on:mouseout="out").reliant-button
-	div.reliant-button_wrapper
+	div(ref="a").reliant-button_wrapper
 		slot
-		svg(width="100%" height="2" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="-4 1 168 1.945")
-			path(d="M 0 1 Q 80 1 160 1 L 160 36 Q 80 36 0 36 Z" ref="lineTop")
+		svg(xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none").slick
+			path(d="M 0 36 L 0 0 L 20 0 A 0 10 0 1 1 20 36 Z" ref="lineTop")
+
+		div(ref="arrow").arrow
+			span(ref="arrow_top").arrow_top
+			span(ref="arrow_bottom").arrow_bottom
+
+		div(ref="circle" style="transform: scale(0)").circle
