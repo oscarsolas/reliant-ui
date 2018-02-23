@@ -4,6 +4,8 @@
 	position: relative;
 	text-decoration: none;
 	z-index: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .reliant-button_wrapper {
@@ -71,20 +73,21 @@
 .arrow {
 	position: absolute;
 	width: 2px;
-	height: 1.5px;
+	height: 1px;
 	border-radius: 2px;
 	top: calc(50% - 1px);
-	right: 12px;
+	right: 10px;
 	overflow: visible;
 	z-index: 1;
 	background-color: #ffffff;
 	opacity: 0;
+	pointer-events: none;
 
 	.arrow_top {
 		position: absolute;
 		content: '';
 		width: 2px;
-		height: 1.5px;
+		height: 1px;
 		right: 0;
 		top: 0;
 		border-radius: 2px;
@@ -97,7 +100,7 @@
 		position: absolute;
 		content: '';
 		width: 2px;
-		height: 1.5px;
+		height: 1px;
 		right: 0;
 		top: 0;
 		border-radius: 2px;
@@ -109,11 +112,13 @@
 
 .circle {
 	position: absolute;
-	right: -11px;
+	top: calc(50% - 12px);
+	right: -12px;
 	width: 22px;
 	height: 22px;
 	border-radius: 40px;
-	border: 1.5px solid #ffffff;
-	transform: scale(0);
+	border: 1px solid #ffffff;
 	opacity: 0;
+	transform: scale(0);
+	pointer-events: none;
 }

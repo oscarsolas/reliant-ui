@@ -68,7 +68,7 @@ export default
 				duration: 800
 			).add(
 				targets: arrow
-				right: -4
+				right: -6
 				offset: '-=800'
 				duration: 800
 			).add(
@@ -114,7 +114,7 @@ export default
 				duration: 100
 			).add(
 				targets: arrow
-				right: 12
+				right: 10
 				duration: 100
 			).add(
 				targets: arrow

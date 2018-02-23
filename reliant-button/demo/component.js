@@ -169,7 +169,7 @@ module.exports = g;
         duration: 800
       }).add({
         targets: arrow,
-        right: -4,
+        right: -6,
         offset: '-=800',
         duration: 800
       }).add({
@@ -214,7 +214,7 @@ module.exports = g;
         duration: 100
       }).add({
         targets: arrow,
-        right: 12,
+        right: 10,
         duration: 100
       }).add({
         targets: arrow,
@@ -11654,7 +11654,7 @@ exports = module.exports = __webpack_require__(10)(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato);", ""]);
 
 // module
-exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  position: relative;\n  text-decoration: none;\n  z-index: 1;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  position: relative;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #ffffff;\n  vertical-align: middle;\n  height: 28px;\n  padding: 4px 20px;\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  filter: drop-shadow(0px 1px 14px rgba(193, 139, 249, 0.7));\n  background-color: #b074ef;\n  border-radius: 4px;\n}\n.slick[data-v-9a64a454] {\n  position: absolute;\n  width: 20px;\n  height: 37px;\n  top: 0;\n  right: 0;\n  overflow: visible;\n  z-index: -1;\n}\n.slick path[data-v-9a64a454] {\n    fill: #b074ef;\n    backface-visibility: hidden;\n    transform: translate3d(-30px, 0, 0);\n}\n.arrow[data-v-9a64a454] {\n  position: absolute;\n  width: 2px;\n  height: 1.5px;\n  border-radius: 2px;\n  top: calc(50% - 1px);\n  right: 12px;\n  overflow: visible;\n  z-index: 1;\n  background-color: #ffffff;\n  opacity: 0;\n}\n.arrow .arrow_top[data-v-9a64a454] {\n    position: absolute;\n    content: '';\n    width: 2px;\n    height: 1.5px;\n    right: 0;\n    top: 0;\n    border-radius: 2px;\n    background-color: #ffffff;\n    transform-origin: 100% 0;\n}\n.arrow .arrow_bottom[data-v-9a64a454] {\n    position: absolute;\n    content: '';\n    width: 2px;\n    height: 1.5px;\n    right: 0;\n    top: 0;\n    border-radius: 2px;\n    background-color: #ffffff;\n    transform-origin: 100% 100%;\n}\n.circle[data-v-9a64a454] {\n  position: absolute;\n  right: -11px;\n  width: 22px;\n  height: 22px;\n  border-radius: 40px;\n  border: 1.5px solid #ffffff;\n  transform: scale(0);\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "\n.reliant-button[data-v-9a64a454] {\n  position: relative;\n  text-decoration: none;\n  z-index: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n.reliant-button_wrapper[data-v-9a64a454] {\n  position: relative;\n  display: inline-flex;\n  justify-content: center;\n  align-items: center;\n  align-content: center;\n  font-family: 'Lato', sans-serif;\n  font-size: 10px;\n  color: #ffffff;\n  vertical-align: middle;\n  height: 28px;\n  padding: 4px 20px;\n  cursor: pointer;\n  transition: background-color 0.2s ease-out;\n  text-transform: uppercase;\n  letter-spacing: 1px;\n  filter: drop-shadow(0px 1px 14px rgba(193, 139, 249, 0.7));\n  background-color: #b074ef;\n  border-radius: 4px;\n}\n.slick[data-v-9a64a454] {\n  position: absolute;\n  width: 20px;\n  height: 37px;\n  top: 0;\n  right: 0;\n  overflow: visible;\n  z-index: -1;\n}\n.slick path[data-v-9a64a454] {\n    fill: #b074ef;\n    backface-visibility: hidden;\n    transform: translate3d(-30px, 0, 0);\n}\n.arrow[data-v-9a64a454] {\n  position: absolute;\n  width: 2px;\n  height: 1px;\n  border-radius: 2px;\n  top: calc(50% - 1px);\n  right: 10px;\n  overflow: visible;\n  z-index: 1;\n  background-color: #ffffff;\n  opacity: 0;\n  pointer-events: none;\n}\n.arrow .arrow_top[data-v-9a64a454] {\n    position: absolute;\n    content: '';\n    width: 2px;\n    height: 1px;\n    right: 0;\n    top: 0;\n    border-radius: 2px;\n    background-color: #ffffff;\n    transform-origin: 100% 0;\n}\n.arrow .arrow_bottom[data-v-9a64a454] {\n    position: absolute;\n    content: '';\n    width: 2px;\n    height: 1px;\n    right: 0;\n    top: 0;\n    border-radius: 2px;\n    background-color: #ffffff;\n    transform-origin: 100% 100%;\n}\n.circle[data-v-9a64a454] {\n  position: absolute;\n  top: calc(50% - 12px);\n  right: -12px;\n  width: 22px;\n  height: 22px;\n  border-radius: 40px;\n  border: 1px solid #ffffff;\n  opacity: 0;\n  transform: scale(0);\n  pointer-events: none;\n}\n", ""]);
 
 // exports
 
