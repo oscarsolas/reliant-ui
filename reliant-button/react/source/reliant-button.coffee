@@ -165,9 +165,9 @@ export default
 		hover: ->
 			component = this
 			lineTop = component.$refs.lineTop
-			a = component.$refs.a
+			button = component.$refs.button_wrapper
 
-			component.animatePadding(a, 30)
+			component.animatePadding(button, 30)
 			component.animateRadius(lineTop, 10, 0)
 			component.animateArrowIn()
 			component.animatecircleIn()
@@ -175,9 +175,9 @@ export default
 		out: ->
 			component = this
 			lineTop = component.$refs.lineTop
-			a = component.$refs.a
+			button = component.$refs.button_wrapper
 
-			component.animatePadding(a, 20)
+			component.animatePadding(button, 20)
 			component.animateRadius(lineTop, 0, -30)
 			component.animateArrowOut()
 			component.animatecircleOut()
