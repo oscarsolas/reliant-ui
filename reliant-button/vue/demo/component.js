@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -95,204 +95,8 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_anime__);
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'reliant-button',
-  props: ['to', 'type'],
-  data: function() {
-    return {
-      animation: void 0,
-      animation2: void 0,
-      animation3: void 0,
-      animation4: void 0,
-      animation5: void 0,
-      animation6: void 0,
-      animation7: void 0
-    };
-  },
-  methods: {
-    animateLine: function(element, to) {
-      if (this.animation) {
-        this.animation.pause();
-      }
-      return this.animation = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
-        targets: element,
-        d: 'M 0 1 Q 80 ' + (1 - to) + ' 160 1 L 160 36 Q 80 ' + (36 + to) + ' 0 36 Z',
-        duration: 1200,
-        elasticity: 800
-      });
-    },
-    animateRadius: function(element, to, move) {
-      if (this.animation2) {
-        this.animation2.pause();
-      }
-      return this.animation2 = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
-        targets: element,
-        d: 'M 0 36 L 0 0 L 20 0 A ' + to + ' 10 0 1 1 20 36 Z',
-        translateX: move
-      });
-    },
-    // duration: 1200
-    // elasticity: 800
-    animatePadding: function(element, to) {
-      if (this.animation3) {
-        this.animation3.pause();
-      }
-      return this.animation3 = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
-        targets: element,
-        paddingRight: to
-      });
-    },
-    animateArrowIn: function() {
-      var arrow, arrowBottom, arrowTop;
-      arrow = this.$refs.arrow;
-      arrowTop = this.$refs.arrow_top;
-      arrowBottom = this.$refs.arrow_bottom;
-      if (this.animation5) {
-        this.animation5.pause();
-      }
-      if (this.animation4) {
-        this.animation4.pause();
-      }
-      this.animation4 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
-      return this.animation4.add({
-        targets: arrow,
-        opacity: 1,
-        duration: 800
-      }).add({
-        targets: arrow,
-        width: 12,
-        offset: '-=700',
-        duration: 800
-      }).add({
-        targets: arrow,
-        right: -6,
-        offset: '-=800',
-        duration: 800
-      }).add({
-        targets: arrowTop,
-        rotate: 45,
-        width: 8,
-        offset: '-=600',
-        duration: 800
-      }).add({
-        targets: arrowBottom,
-        rotate: -45,
-        width: 8,
-        offset: '-=750',
-        duration: 800
-      });
-    },
-    animateArrowOut: function() {
-      var arrow, arrowBottom, arrowTop;
-      arrow = this.$refs.arrow;
-      arrowTop = this.$refs.arrow_top;
-      arrowBottom = this.$refs.arrow_bottom;
-      if (this.animation5) {
-        this.animation5.pause();
-      }
-      if (this.animation4) {
-        this.animation4.pause();
-      }
-      this.animation5 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
-      return this.animation5.add({
-        targets: arrow,
-        opacity: 0,
-        duration: 800
-      }).add({
-        targets: arrowBottom,
-        rotate: 0,
-        width: 2,
-        duration: 100
-      }).add({
-        targets: arrowTop,
-        rotate: 0,
-        width: 2,
-        duration: 100
-      }).add({
-        targets: arrow,
-        right: 10,
-        duration: 100
-      }).add({
-        targets: arrow,
-        width: 2,
-        duration: 100
-      });
-    },
-    animatecircleIn: function() {
-      var circle;
-      circle = this.$refs.circle;
-      if (this.animation6) {
-        this.animation6.pause();
-      }
-      if (this.animation7) {
-        this.animation7.pause();
-      }
-      this.animation6 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
-      return this.animation6.add({
-        targets: circle,
-        opacity: 1,
-        duration: 100
-      }).add({
-        targets: circle,
-        scale: 1,
-        duration: 800
-      });
-    },
-    animatecircleOut: function() {
-      var circle;
-      circle = this.$refs.circle;
-      if (this.animation7) {
-        this.animation7.pause();
-      }
-      if (this.animation6) {
-        this.animation6.pause();
-      }
-      this.animation7 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
-      return this.animation7.add({
-        targets: circle,
-        opacity: 0,
-        duration: 100
-      }).add({
-        targets: circle,
-        scale: 0,
-        duration: 100
-      });
-    },
-    hover: function() {
-      var a, component, lineTop;
-      component = this;
-      lineTop = component.$refs.lineTop;
-      a = component.$refs.a;
-      component.animatePadding(a, 30);
-      component.animateRadius(lineTop, 10, 0);
-      component.animateArrowIn();
-      return component.animatecircleIn();
-    },
-    out: function() {
-      var a, component, lineTop;
-      component = this;
-      lineTop = component.$refs.lineTop;
-      a = component.$refs.a;
-      component.animatePadding(a, 20);
-      component.animateRadius(lineTop, 0, -30);
-      component.animateArrowOut();
-      return component.animatecircleOut();
-    }
-  }
-});
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reliant_button_vue__ = __webpack_require__(7);
 // import vue
@@ -310,7 +114,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
@@ -11112,10 +10916,10 @@ return Vue$3;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(3).setImmediate))
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
@@ -11168,7 +10972,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(5);
+__webpack_require__(4);
 // On some exotic environments, it's not clear which object `setimmeidate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -11182,7 +10986,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -11372,10 +11176,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(5)))
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -11565,11 +11369,207 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_anime__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'reliant-button',
+  props: ['to', 'type'],
+  data: function() {
+    return {
+      animation: void 0,
+      animation2: void 0,
+      animation3: void 0,
+      animation4: void 0,
+      animation5: void 0,
+      animation6: void 0,
+      animation7: void 0
+    };
+  },
+  methods: {
+    animateLine: function(element, to) {
+      if (this.animation) {
+        this.animation.pause();
+      }
+      return this.animation = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+        targets: element,
+        d: 'M 0 1 Q 80 ' + (1 - to) + ' 160 1 L 160 36 Q 80 ' + (36 + to) + ' 0 36 Z',
+        duration: 1200,
+        elasticity: 800
+      });
+    },
+    animateRadius: function(element, to, move) {
+      if (this.animation2) {
+        this.animation2.pause();
+      }
+      return this.animation2 = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+        targets: element,
+        d: 'M 0 36 L 0 0 L 20 0 A ' + to + ' 10 0 1 1 20 36 Z',
+        translateX: move
+      });
+    },
+    // duration: 1200
+    // elasticity: 800
+    animatePadding: function(element, to) {
+      if (this.animation3) {
+        this.animation3.pause();
+      }
+      return this.animation3 = __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+        targets: element,
+        paddingRight: to
+      });
+    },
+    animateArrowIn: function() {
+      var arrow, arrowBottom, arrowTop;
+      arrow = this.$refs.arrow;
+      arrowTop = this.$refs.arrow_top;
+      arrowBottom = this.$refs.arrow_bottom;
+      if (this.animation5) {
+        this.animation5.pause();
+      }
+      if (this.animation4) {
+        this.animation4.pause();
+      }
+      this.animation4 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation4.add({
+        targets: arrow,
+        opacity: 1,
+        duration: 800
+      }).add({
+        targets: arrow,
+        width: 12,
+        offset: '-=700',
+        duration: 800
+      }).add({
+        targets: arrow,
+        right: -6,
+        offset: '-=800',
+        duration: 800
+      }).add({
+        targets: arrowTop,
+        rotate: 45,
+        width: 8,
+        offset: '-=600',
+        duration: 800
+      }).add({
+        targets: arrowBottom,
+        rotate: -45,
+        width: 8,
+        offset: '-=750',
+        duration: 800
+      });
+    },
+    animateArrowOut: function() {
+      var arrow, arrowBottom, arrowTop;
+      arrow = this.$refs.arrow;
+      arrowTop = this.$refs.arrow_top;
+      arrowBottom = this.$refs.arrow_bottom;
+      if (this.animation5) {
+        this.animation5.pause();
+      }
+      if (this.animation4) {
+        this.animation4.pause();
+      }
+      this.animation5 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation5.add({
+        targets: arrow,
+        opacity: 0,
+        duration: 800
+      }).add({
+        targets: arrowBottom,
+        rotate: 0,
+        width: 2,
+        duration: 100
+      }).add({
+        targets: arrowTop,
+        rotate: 0,
+        width: 2,
+        duration: 100
+      }).add({
+        targets: arrow,
+        right: 10,
+        duration: 100
+      }).add({
+        targets: arrow,
+        width: 2,
+        duration: 100
+      });
+    },
+    animatecircleIn: function() {
+      var circle;
+      circle = this.$refs.circle;
+      if (this.animation6) {
+        this.animation6.pause();
+      }
+      if (this.animation7) {
+        this.animation7.pause();
+      }
+      this.animation6 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation6.add({
+        targets: circle,
+        opacity: 1,
+        duration: 100
+      }).add({
+        targets: circle,
+        scale: 1,
+        duration: 800
+      });
+    },
+    animatecircleOut: function() {
+      var circle;
+      circle = this.$refs.circle;
+      if (this.animation7) {
+        this.animation7.pause();
+      }
+      if (this.animation6) {
+        this.animation6.pause();
+      }
+      this.animation7 = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+      return this.animation7.add({
+        targets: circle,
+        opacity: 0,
+        duration: 100
+      }).add({
+        targets: circle,
+        scale: 0,
+        duration: 100
+      });
+    },
+    hover: function() {
+      var button, component, lineTop;
+      component = this;
+      lineTop = component.$refs.lineTop;
+      button = component.$refs.button_wrapper;
+      component.animatePadding(button, 30);
+      component.animateRadius(lineTop, 10, 0);
+      component.animateArrowIn();
+      return component.animatecircleIn();
+    },
+    out: function() {
+      var button, component, lineTop;
+      component = this;
+      lineTop = component.$refs.lineTop;
+      button = component.$refs.button_wrapper;
+      component.animatePadding(button, 20);
+      component.animateRadius(lineTop, 0, -30);
+      component.animateArrowOut();
+      return component.animatecircleOut();
+    }
+  }
+});
+
+
+/***/ }),
 /* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__coffee_loader_source_reliant_button_coffee__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__coffee_loader_source_reliant_button_coffee__ = __webpack_require__(6);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tools_node_modules_vue_loader_lib_template_compiler_index_id_data_v_9a64a454_hasScoped_true_buble_transforms_tools_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_source_reliant_button_pug__ = __webpack_require__(15);
 var disposed = false
@@ -12172,7 +12172,7 @@ var render = function() {
     [
       _c(
         "div",
-        { ref: "a", staticClass: "reliant-button_wrapper" },
+        { ref: "button_wrapper", staticClass: "reliant-button_wrapper" },
         [
           _vm._t("default"),
           _c(

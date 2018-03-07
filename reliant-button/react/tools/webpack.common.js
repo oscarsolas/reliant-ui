@@ -10,7 +10,7 @@ module.exports = {
 		components: './component.coffee'
 	},
 	output: {
-		path: path.resolve(__dirname, 'demo'),
+		path: path.resolve(__dirname, '..', 'demo'),
 		publicPath: '/',
 		filename: 'component.js'
 	},
@@ -19,11 +19,23 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			'anime$': path.resolve(__dirname, 'node_modules', 'animejs', 'anime.min.js')
+			'anime$': path.resolve(__dirname, 'node_modules', 'animejs', 'anime.min.js'),
+			'react$': path.resolve(__dirname, 'node_modules', 'react'),
+			'react-dom$': path.resolve(__dirname, 'node_modules', 'react-dom')
 		}
 	},
 	module: {
 		rules: [
+			// {
+			// 	test: /\.jsx$/,
+			// 	loader: 'babel-loader',
+			// 	exclude: /node_modules/,
+			// 	options: {
+			// 		babelrc: false,
+			// 		// presets: ['es2015', 'react']
+			// 		presets: [path.resolve(__dirname, 'node_modules', 'babel-preset-env'), path.resolve(__dirname, 'node_modules', 'babel-preset-react')],
+			// 	}
+			// },
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader',
@@ -48,7 +60,16 @@ module.exports = {
 			},
 			{
 				test: /\.coffee$/,
-				loader: 'coffee-loader',
+				use: [
+					{
+						loader: 'coffee-loader',
+						options: {
+							transpile: {
+								presets: [path.resolve(__dirname, 'node_modules', 'babel-preset-env'), path.resolve(__dirname, 'node_modules', 'babel-preset-react')]
+							}
+						}
+					}
+				],
 				exclude: /node_modules/
 			},
 			{
