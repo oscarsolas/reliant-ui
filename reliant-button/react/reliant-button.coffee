@@ -181,9 +181,6 @@ export default class ReliantButton extends React.Component
 		component.animateArrowOut()
 		component.animatecircleOut()
 
-	componentDidMount: ->
-		console.log this.data
-
 	render: ->
 		<a href="to" onMouseOver={(e) => this.hover(e)} onMouseOut={(e) => this.out(e)} className="reliant-button">
 			<div ref="button_wrapper" className="reliant-button_wrapper">
