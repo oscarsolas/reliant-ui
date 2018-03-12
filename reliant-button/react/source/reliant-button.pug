@@ -1,7 +1,7 @@
-a(:href="to" v-on:mouseover="hover" v-on:mouseout="out").reliant-button
+a(:href="to").reliant-button
 	div(ref="button_wrapper").reliant-button_wrapper
 		//- content
-		slot
+		| { this.props.children }
 
 		//- shape
 		svg(xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none").slick
@@ -13,4 +13,4 @@ a(:href="to" v-on:mouseover="hover" v-on:mouseout="out").reliant-button
 			span(ref="arrow_bottom").arrow_bottom
 
 		//- circle
-		div(ref="circle" style="transform: scale(0)").circle
+		div(ref="circle").circle
