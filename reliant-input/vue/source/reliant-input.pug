@@ -1,0 +1,5 @@
+div.reliant-input
+	div(ref="placeholder").reliant-input__placeholder {{ placeholder }}
+		span(ref="placeholder__stain").reliant-input__placeholder__stain
+	input(:type="type ? type : null" v-model="value" @focus="animateIn()" @blur="animateOut()").reliant-input__input
+	div(ref="underline").reliant-input__underline
