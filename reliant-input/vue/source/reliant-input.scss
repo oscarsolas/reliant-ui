@@ -1,8 +1,70 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
+// colors
+$color-white: #ffffff;
+$color-grey: #bcbcbc;
+$color-grey-shape02: #333333;
+$color-purple: #b074ef;
+
 .reliant-input {
 	position: relative;
+	display: inline-block;
+}
+
+.reliant-input__input {
+	position: relative;
 	z-index: 1;
+	width: calc(100% - 5px);
+	background-color: $color-white;
+	font-family: 'Lato', sans-serif;
+	font-size: 12px;
+	color: $color-grey-shape02;
+	appearance: none;
+	border: 1px solid $color-grey;
+	border-width: 0px 0px 1px 0px;
+	height: 30px;
+	padding: 10px 0 0 5px;
+	outline: none;
+}
+
+.reliant-input__placeholder {
+	position: absolute;
+	top: 14px;
+	left: 0;
+	color: $color-grey;
+	font-family: 'Lato', sans-serif;
+	font-size: 12px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	pointer-events: none;
+	z-index: 2;
+	transform: text-transform .6s ease-out;
+	padding: 0 5px;
+
+	&.active {
+		text-transform: uppercase;
+	}
+}
+
+.reliant-input__placeholder__stain {
+	position: absolute;
+	top: -2px;
+	left: 0;
+	height: calc(100% + 4px);
+	width: 0;
+	background-color: $color-purple;
+	z-index: -1;
+	border-radius: 4px;
+}
+
+.reliant-input__underline {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 1px;
+	transform: scaleX(0);
+	transform-origin: 0 50%;
+	background-color: $color-grey-shape02;
+	z-index: 1;
 }

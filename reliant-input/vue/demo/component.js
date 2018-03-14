@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -95,10 +95,130 @@ module.exports = g;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_anime__);
+
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  name: 'reliant-input',
+  props: ['type'],
+  directives: {
+    focus: {
+      inserted: function(el) {
+        return el.focus();
+      }
+    },
+    blur: {
+      inserted: function(el) {
+        return el.blur();
+      }
+    }
+  },
+  data: function() {
+    return {
+      value: '',
+      placeholder: '',
+      animation: void 0
+    };
+  },
+  methods: {
+    animateIn: function(element) {
+      var placeholder, stain, underline;
+      placeholder = this.$refs.placeholder;
+      stain = this.$refs.placeholder__stain;
+      underline = this.$refs.underline;
+      __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+        targets: underline,
+        scaleX: [0, 1],
+        elasticity: 20,
+        duration: 1000
+      });
+      if (this.value.length === 0) {
+        if (this.animation) {
+          this.animation.pause();
+        }
+        this.animation = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+        return this.animation.add({
+          targets: placeholder,
+          top: -4,
+          fontSize: '8px',
+          duration: 1000,
+          elasticity: 400,
+          begin: function() {
+            return placeholder.classList.add('active');
+          }
+        }).add({
+          targets: stain,
+          width: '100%',
+          duration: 1100,
+          offset: '-=800',
+          elasticity: 600
+        }).add({
+          targets: placeholder,
+          color: '#ffffff',
+          offset: '-=1100',
+          duration: 1100
+        });
+      }
+    },
+    animateOut: function(element) {
+      var placeholder, stain, underline;
+      placeholder = this.$refs.placeholder;
+      stain = this.$refs.placeholder__stain;
+      underline = this.$refs.underline;
+      __WEBPACK_IMPORTED_MODULE_0_anime___default()({
+        targets: underline,
+        scaleX: [1, 0],
+        easing: 'easeOutQuint',
+        duration: 900
+      });
+      if (this.value.length === 0) {
+        if (this.animation) {
+          this.animation.pause();
+        }
+        this.animation = __WEBPACK_IMPORTED_MODULE_0_anime___default.a.timeline();
+        return this.animation.add({
+          targets: stain,
+          width: 0,
+          duration: 400,
+          easing: 'easeInBack'
+        }).add({
+          targets: placeholder,
+          color: '#bcbcbc',
+          offset: '-=150',
+          duration: 300,
+          easing: 'easeOutQuad'
+        }).add({
+          targets: placeholder,
+          top: 14,
+          fontSize: '12px',
+          duration: 800,
+          offset: '-=150',
+          elasticity: 400,
+          begin: function() {
+            return placeholder.classList.remove('active');
+          }
+        });
+      }
+    }
+  },
+  created: function() {
+    var component;
+    component = this;
+    return component.placeholder = this.$slots.default[0].text;
+  }
+});
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reliant_input_vue__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__reliant_input_vue__ = __webpack_require__(7);
 // import vue
 
 
@@ -114,7 +234,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
@@ -11058,10 +11178,10 @@ return Vue;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(3).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(4).setImmediate))
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var apply = Function.prototype.apply;
@@ -11114,7 +11234,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(4);
+__webpack_require__(5);
 // On some exotic environments, it's not clear which object `setimmeidate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -11128,7 +11248,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -11318,10 +11438,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
     attachTo.clearImmediate = clearImmediate;
 }(typeof self === "undefined" ? typeof global === "undefined" ? this : global : self));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(6)))
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -11511,19 +11631,19 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__coffee_loader_source_reliant_input_coffee__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__coffee_loader_source_reliant_input_coffee__ = __webpack_require__(1);
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__tools_node_modules_vue_loader_lib_template_compiler_index_id_data_v_51fb86d6_hasScoped_true_buble_transforms_tools_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_source_reliant_input_pug__ = __webpack_require__(15);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(9)
+  __webpack_require__(8)
 }
-var normalizeComponent = __webpack_require__(7)
+var normalizeComponent = __webpack_require__(13)
 /* script */
 
 /* template */
@@ -11566,152 +11686,17 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file.
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-module.exports = function normalizeComponent (
-  rawScriptExports,
-  compiledTemplate,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier /* server only */
-) {
-  var esModule
-  var scriptExports = rawScriptExports = rawScriptExports || {}
-
-  // ES6 modules interop
-  var type = typeof rawScriptExports.default
-  if (type === 'object' || type === 'function') {
-    esModule = rawScriptExports
-    scriptExports = rawScriptExports.default
-  }
-
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // render functions
-  if (compiledTemplate) {
-    options.render = compiledTemplate.render
-    options.staticRenderFns = compiledTemplate.staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = injectStyles
-  }
-
-  if (hook) {
-    var functional = options.functional
-    var existing = functional
-      ? options.render
-      : options.beforeCreate
-
-    if (!functional) {
-      // inject component registration as beforeCreate hook
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    } else {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return existing(h, context)
-      }
-    }
-  }
-
-  return {
-    esModule: esModule,
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
 /* 8 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_anime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_anime__);
-
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  name: 'reliant-input',
-  props: [],
-  data: function() {
-    return {
-      value: '',
-      placeholder: ''
-    };
-  },
-  created: function() {
-    var component;
-    component = this;
-    return component.placeholder = this.$slots.default[0].text;
-  }
-});
-
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(10);
+var content = __webpack_require__(9);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(12)("36002cc1", content, false, {});
+var update = __webpack_require__(11)("36002cc1", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -11727,21 +11712,21 @@ if(false) {
 }
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(11)(false);
+exports = module.exports = __webpack_require__(10)(false);
 // imports
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato);", ""]);
 
 // module
-exports.push([module.i, "\n.reliant-input[data-v-51fb86d6] {\n  position: relative;\n  z-index: 1;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n}\n", ""]);
+exports.push([module.i, "\n.reliant-input[data-v-51fb86d6] {\n  position: relative;\n  display: inline-block;\n}\n.reliant-input__input[data-v-51fb86d6] {\n  position: relative;\n  z-index: 1;\n  width: calc(100% - 5px);\n  background-color: #ffffff;\n  font-family: 'Lato', sans-serif;\n  font-size: 12px;\n  color: #333333;\n  appearance: none;\n  border: 1px solid #bcbcbc;\n  border-width: 0px 0px 1px 0px;\n  height: 30px;\n  padding: 10px 0 0 5px;\n  outline: none;\n}\n.reliant-input__placeholder[data-v-51fb86d6] {\n  position: absolute;\n  top: 14px;\n  left: 0;\n  color: #bcbcbc;\n  font-family: 'Lato', sans-serif;\n  font-size: 12px;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  pointer-events: none;\n  z-index: 2;\n  transform: text-transform .6s ease-out;\n  padding: 0 5px;\n}\n.reliant-input__placeholder.active[data-v-51fb86d6] {\n    text-transform: uppercase;\n}\n.reliant-input__placeholder__stain[data-v-51fb86d6] {\n  position: absolute;\n  top: -2px;\n  left: 0;\n  height: calc(100% + 4px);\n  width: 0;\n  background-color: #b074ef;\n  z-index: -1;\n  border-radius: 4px;\n}\n.reliant-input__underline[data-v-51fb86d6] {\n  position: absolute;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  height: 1px;\n  transform: scaleX(0);\n  transform-origin: 0 50%;\n  background-color: #333333;\n  z-index: 1;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /*
@@ -11823,7 +11808,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -11842,7 +11827,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(13)
+var listToStyles = __webpack_require__(12)
 
 /*
 type StyleObject = {
@@ -12051,7 +12036,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports) {
 
 /**
@@ -12080,6 +12065,115 @@ module.exports = function listToStyles (parentId, list) {
     }
   }
   return styles
+}
+
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file.
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
 }
 
 
@@ -12134,26 +12228,115 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("input", {
-    directives: [
-      {
-        name: "model",
-        rawName: "v-model",
-        value: _vm.value,
-        expression: "value"
-      }
-    ],
-    attrs: { placeholder: _vm.placeholder },
-    domProps: { value: _vm.value },
-    on: {
-      input: function($event) {
-        if ($event.target.composing) {
-          return
-        }
-        _vm.value = $event.target.value
-      }
-    }
-  })
+  return _c("div", { staticClass: "reliant-input" }, [
+    _c(
+      "div",
+      { ref: "placeholder", staticClass: "reliant-input__placeholder" },
+      [
+        _vm._v(_vm._s(_vm.placeholder)),
+        _c("span", {
+          ref: "placeholder__stain",
+          staticClass: "reliant-input__placeholder__stain"
+        })
+      ]
+    ),
+    (_vm.type ? _vm.type : null) === "checkbox"
+      ? _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.value,
+              expression: "value"
+            }
+          ],
+          staticClass: "reliant-input__input",
+          attrs: { type: "checkbox" },
+          domProps: {
+            checked: Array.isArray(_vm.value)
+              ? _vm._i(_vm.value, null) > -1
+              : _vm.value
+          },
+          on: {
+            focus: function($event) {
+              _vm.animateIn()
+            },
+            blur: function($event) {
+              _vm.animateOut()
+            },
+            change: function($event) {
+              var $$a = _vm.value,
+                $$el = $event.target,
+                $$c = $$el.checked ? true : false
+              if (Array.isArray($$a)) {
+                var $$v = null,
+                  $$i = _vm._i($$a, $$v)
+                if ($$el.checked) {
+                  $$i < 0 && (_vm.value = $$a.concat([$$v]))
+                } else {
+                  $$i > -1 &&
+                    (_vm.value = $$a.slice(0, $$i).concat($$a.slice($$i + 1)))
+                }
+              } else {
+                _vm.value = $$c
+              }
+            }
+          }
+        })
+      : (_vm.type ? _vm.type : null) === "radio"
+        ? _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.value,
+                expression: "value"
+              }
+            ],
+            staticClass: "reliant-input__input",
+            attrs: { type: "radio" },
+            domProps: { checked: _vm._q(_vm.value, null) },
+            on: {
+              focus: function($event) {
+                _vm.animateIn()
+              },
+              blur: function($event) {
+                _vm.animateOut()
+              },
+              change: function($event) {
+                _vm.value = null
+              }
+            }
+          })
+        : _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.value,
+                expression: "value"
+              }
+            ],
+            staticClass: "reliant-input__input",
+            attrs: { type: _vm.type ? _vm.type : null },
+            domProps: { value: _vm.value },
+            on: {
+              focus: function($event) {
+                _vm.animateIn()
+              },
+              blur: function($event) {
+                _vm.animateOut()
+              },
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.value = $event.target.value
+              }
+            }
+          }),
+    _c("div", { ref: "underline", staticClass: "reliant-input__underline" })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
