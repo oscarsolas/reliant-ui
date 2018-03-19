@@ -9,6 +9,14 @@ $color-purple: #b074ef;
 .reliant-input {
 	position: relative;
 	display: inline-block;
+
+	&[fullwidth] {
+		width: 100%;
+
+		+ .reliant-input[fullwidth] {
+			margin-top: 20px;
+		}
+	}
 }
 
 .reliant-input__input {
